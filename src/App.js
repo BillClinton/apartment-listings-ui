@@ -1,6 +1,6 @@
 import React from 'react';
 import ApartmentStoreProvider from './contexts/ApartmentStore';
-import ApartmentList from './components/ApartmentList';
+import ApartmentList from './components/apartment/ApartmentList';
 
 function App() {
   return (
