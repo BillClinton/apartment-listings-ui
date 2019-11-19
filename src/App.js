@@ -1,5 +1,5 @@
 import React from 'react';
-import ApartmentContextProvider from './contexts/ApartmentContext';
+import ApartmentStoreProvider from './contexts/ApartmentStore';
 import ApartmentList from './components/ApartmentList';
 
 function App() {
@@ -7,9 +7,9 @@ function App() {
     <div className="App">
       <header className="App-header"></header>
       <h1>Apartment List</h1>
-      <ApartmentContextProvider>
+      <ApartmentStoreProvider>
         <ApartmentList />
-      </ApartmentContextProvider>
+      </ApartmentStoreProvider>
     </div>
   );
 }
