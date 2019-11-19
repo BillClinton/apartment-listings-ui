@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import useForm from 'react-hook-form';
+import { ApartmentStore } from '../../contexts/ApartmentStore';
 import TextInput from '../form/TextInput';
 
 const ApartmentForm = () => {
+  const { store } = useContext(ApartmentStore);
   const form = useForm(); // initialise the hook
+
   const onSubmit = data => {
     console.log(data);
+    store.create(data);
   };
 
   return (
