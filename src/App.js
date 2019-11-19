@@ -1,6 +1,7 @@
 import React from 'react';
 import ApartmentStoreProvider from './contexts/ApartmentStore';
 import ApartmentList from './components/apartment/ApartmentList';
+import ApartmentForm from './components/apartment/ApartmentForm';
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <h1>Apartment List</h1>
       <ApartmentStoreProvider>
         <ApartmentList />
+        <ApartmentForm />
       </ApartmentStoreProvider>
     </div>
   );
