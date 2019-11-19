@@ -8,17 +8,12 @@ export const createApartment = (formValues, dispatch) => {
 
   sendData()
     .then(response => {
-      console.log(response);
       dispatch({
         type: CREATE_APARTMENT,
         payload: response.data
       });
     })
     .catch(e => {
-      console.log(e);
-      console.log(typeof e);
-      console.log(e.name);
-      console.log(e.response);
       toastError(e.response.statusText, { errors: [e.response.data.error] });
     });
 };
