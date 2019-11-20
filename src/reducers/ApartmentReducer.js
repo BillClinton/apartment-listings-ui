@@ -1,4 +1,8 @@
-import { CREATE_APARTMENT, READ_APARTMENTS } from '../actions/types';
+import {
+  CREATE_APARTMENT,
+  READ_APARTMENTS,
+  DELETE_APARTMENT
+} from '../actions/types';
 
 export default (state = {}, action) => {
   switch (action.type) {
@@ -9,6 +13,11 @@ export default (state = {}, action) => {
       };
     case READ_APARTMENTS:
       return { ...state, apartments: action.payload };
+    case DELETE_APARTMENT:
+      const apartments = state.apartments.filter(
+        apt => apt._id !== action.payload
+      );
+      return { ...state, apartments: apartments };
 
     default:
       return state;
