@@ -1,7 +1,12 @@
 import API from '../apis/API';
 import { toastError } from '../components/form/Toasts';
 
-import { CREATE_APARTMENT, READ_APARTMENTS, DELETE_APARTMENT } from './types';
+import {
+  CREATE_APARTMENT,
+  READ_APARTMENTS,
+  UPDATE_APARTMENT,
+  DELETE_APARTMENT
+} from './types';
 
 export const createApartment = (formValues, dispatch) => {
   const sendData = async () => await API.post('/apartments', { ...formValues });
@@ -29,11 +34,29 @@ export const readApartments = dispatch => {
   });
 };
 
+export const updateApartment = (formValues, dispatch) => {
+  const updateData = async () =>
+    await API.patch(`/apartments/${formValues._id}`, { ...formValues });
+
+  updateData()
+    .then(response => {
+      dispatch({
+        type: UPDATE_APARTMENT,
+        payload: response.data
+      });
+    })
+    .catch(e => {
+      toastError(e.response.statusText, { errors: [e.response.data.error] });
+    });
+};
+
 export const deleteApartment = (id, dispatch) => {
-  console.log('delete: ' + id);
-  console.log(id);
-  dispatch({
-    type: DELETE_APARTMENT,
-    payload: id
+  const deleteData = async () => await API.delete(`/apartments/${id}`);
+
+  deleteData().then(response => {
+    dispatch({
+      type: DELETE_APARTMENT,
+      payload: id
+    });
   });
 };
