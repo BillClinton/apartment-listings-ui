@@ -1,16 +1,12 @@
 import React, { useContext } from 'react';
 import useForm from 'react-hook-form';
-import { ApartmentStore } from '../../contexts/ApartmentStore';
 import TextInput from '../form/TextInput';
+import { ApartmentStore } from '../../contexts/ApartmentStore';
 
-const ApartmentForm = () => {
+const EditApartmentForm = () => {
+  const form = useForm();
   const { store } = useContext(ApartmentStore);
-  const form = useForm(); // initialise the hook
-
-  const onSubmit = data => {
-    console.log(data);
-    store.create(data);
-  };
+  const onSubmit = data => store.update(data);
 
   return (
     <form onSubmit={form.handleSubmit(onSubmit)}>
@@ -54,4 +50,4 @@ const ApartmentForm = () => {
   );
 };
 
-export default ApartmentForm;
+export default EditApartmentForm;

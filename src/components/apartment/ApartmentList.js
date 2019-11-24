@@ -9,6 +9,7 @@ const ApartmentList = () => {
 
   return apartments.length ? (
     <div className="apartment-list">
+      <h1>Apartment List</h1>
       <ul>
         {apartments.map(apartment => {
           return <ApartmentDetails apartment={apartment} key={apartment._id} />;
