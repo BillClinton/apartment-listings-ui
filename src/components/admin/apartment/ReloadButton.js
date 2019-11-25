@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { ApartmentStore } from '../../contexts/ApartmentStore';
+import { ApartmentStore } from '../../../contexts/ApartmentStore';
 
 const ReloadButton = () => {
   const { store } = useContext(ApartmentStore);

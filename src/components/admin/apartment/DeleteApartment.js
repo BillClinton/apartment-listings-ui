@@ -1,6 +1,6 @@
 import React from 'react';
-import Modal from '../../Modal';
-import history from '../../history';
+import Modal from '../../../Modal';
+import history from '../../../history';
 
 const DeleteApartment = () => {
   const onDismiss = () => {

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import useForm from 'react-hook-form';
-import TextInput from '../form/TextInput';
-import { ApartmentStore } from '../../contexts/ApartmentStore';
+import TextInput from '../../form/TextInput';
+import { ApartmentStore } from '../../../contexts/ApartmentStore';
 
 const EditApartmentForm = () => {
   const form = useForm();
