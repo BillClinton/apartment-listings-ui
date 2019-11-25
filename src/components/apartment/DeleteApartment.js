@@ -3,24 +3,22 @@ import Modal from '../../Modal';
 import history from '../../history';
 
 const DeleteApartment = () => {
-  console.log('Delete Apartment');
-  const content = 'Are you sure you want to delete this apartment?';
   const onDismiss = () => {
+    console.log('heyheyhye');
     history.goBack();
   };
+
   const actions = (
-    <React.Fragment>
+    <>
       <button>Delete</button>
-      <button onClick={() => onDismiss()} className="ui button">
-        Cancel
-      </button>
-    </React.Fragment>
+      <button onClick={() => onDismiss()}>Cancel</button>
+    </>
   );
 
   return (
     <Modal
       title="Delete Apartment"
-      content={content}
+      content="Are you sure you want to delete this apartment?"
       actions={actions}
       onDismiss={onDismiss}
     />
