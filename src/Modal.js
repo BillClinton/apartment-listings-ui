@@ -1,22 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import styles from './Modal.module.scss';
+import { ReactComponent as CloseIcon } from './icons/times-circle-solid.svg';
 
 const Modal = props => {
   console.log('modal');
   console.log(props);
   return ReactDOM.createPortal(
-    <div
-      onClick={() => props.onDismiss()}
-      className="ui dimmer modals visible active"
-    >
-      <div
-        onClick={e => e.stopPropagation()}
-        className="ui standard modal visible active"
-      >
-        <div className="header">{props.title}</div>
-        <div className="content">{props.content}</div>
-        <div className="actions">{props.actions}</div>
-      </div>
+    <div className={styles.modal}>
+      <CloseIcon onClick={props.onDismiss} />
+      <div className={styles.header}>{props.title}</div>
+      <div className={styles.content}>{props.content}</div>
+      <div className={styles.actions}>{props.actions}</div>
     </div>,
     document.querySelector('#modal')
   );

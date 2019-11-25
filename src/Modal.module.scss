@@ -1,0 +1,39 @@
+@import './sass/_variables';
+@import './sass/_buttons';
+
+.modal {
+  margin: calc(#{$header-height} + 1em) auto;
+  border: 1px solid #999;
+  border-radius: 1em;
+  width: 60vw;
+  max-width: 360px;
+  box-shadow: 0 3px 20px -5px;
+  overflow: hidden;
+  position: relative;
+
+  svg {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 6px;
+    right: 6px;
+  }
+
+  .header {
+    padding: 0.5em 1em;
+    font-weight: 600;
+  }
+  .content {
+    padding: 0.8em 1em;
+  }
+  .actions {
+    padding: 0.5em 1em;
+    display: flex;
+    justify-content: flex-end;
+
+    button {
+      @extend .button;
+      margin: 0 0.4em 0.2em;
+    }
+  }
+}
