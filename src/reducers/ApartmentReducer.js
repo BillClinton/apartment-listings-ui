@@ -1,5 +1,6 @@
 import {
   CREATE_APARTMENT,
+  READ_APARTMENT,
   READ_APARTMENTS,
   UPDATE_APARTMENT,
   DELETE_APARTMENT
@@ -14,14 +15,23 @@ export default (state = {}, action) => {
       };
     }
 
+    case READ_APARTMENT: {
+      console.log(action.payload);
+      return { ...state, apartment: action.payload };
+    }
+
     case READ_APARTMENTS: {
       return { ...state, apartments: action.payload };
     }
 
     case UPDATE_APARTMENT: {
+      console.log(action.payload);
       const apartments = state.apartments;
-      const apartment = action.payload.apartment;
-      const index = apartments.indexOf(apartment);
+      const apartment = action.payload;
+      const index = apartments.findIndex(item => item._id === apartment._id);
+
+      console.log(action.payload);
+      console.log(index);
 
       if (~index) {
         apartments[index] = apartment;

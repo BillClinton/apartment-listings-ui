@@ -3,12 +3,14 @@ import useForm from 'react-hook-form';
 import TextInput from '../../form/TextInput';
 import { ApartmentStore } from '../../../contexts/ApartmentStore';
 
-const EditApartmentForm = () => {
-  const form = useForm();
+const EditApartmentForm = ({ apartment }) => {
+  const form = useForm({ defaultValues: apartment });
   const { store } = useContext(ApartmentStore);
-  const onSubmit = data => store.update(data);
+  const onSubmit = data => store.update(apartment._id, data);
 
-  return (
+  console.log(apartment);
+
+  return apartment ? (
     <form onSubmit={form.handleSubmit(onSubmit)}>
       <TextInput
         form={form}
@@ -47,6 +49,8 @@ const EditApartmentForm = () => {
 
       <input type="submit" />
     </form>
+  ) : (
+    <div>Loading....</div>
   );
 };
 

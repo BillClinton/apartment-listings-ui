@@ -1,8 +1,10 @@
 import API from '../apis/API';
+import history from '../history';
 import { toastError } from '../components/form/Toasts';
 
 import {
   CREATE_APARTMENT,
+  READ_APARTMENT,
   READ_APARTMENTS,
   UPDATE_APARTMENT,
   DELETE_APARTMENT
@@ -23,6 +25,23 @@ export const createApartment = (formValues, dispatch) => {
     });
 };
 
+export const readApartment = (id, dispatch) => {
+  const getData = async () => await API.get(`/apartments/${id}`);
+  console.log('reading....');
+  getData()
+    .then(response => {
+      dispatch({
+        type: READ_APARTMENT,
+        payload: response.data
+      });
+      console.log(response.data);
+    })
+    .catch(e => {
+      console.log(e);
+      //toastError(e.response.statusText, { errors: [e.response.data.error] });
+    });
+};
+
 export const readApartments = dispatch => {
   const getData = async () => await API.get('/apartments');
 
@@ -34,19 +53,22 @@ export const readApartments = dispatch => {
   });
 };
 
-export const updateApartment = (formValues, dispatch) => {
+export const updateApartment = (id, formValues, dispatch) => {
   const updateData = async () =>
-    await API.patch(`/apartments/${formValues._id}`, { ...formValues });
+    await API.patch(`/apartments/${id}`, { ...formValues });
 
   updateData()
     .then(response => {
+      console.log('dispatching');
       dispatch({
         type: UPDATE_APARTMENT,
         payload: response.data
       });
+      history.push('/admin/apartments');
     })
     .catch(e => {
-      toastError(e.response.statusText, { errors: [e.response.data.error] });
+      console.log(e);
+      //toastError(e.response.statusText, { errors: [e.response.data.error] });
     });
 };
 
@@ -58,5 +80,6 @@ export const deleteApartment = (id, dispatch) => {
       type: DELETE_APARTMENT,
       payload: id
     });
+    history.goBack();
   });
 };
