@@ -1,17 +1,20 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-//import { ApartmentStore } from '../../contexts/ApartmentStore';
+import styles from './styles/ApartmentDetails.module.scss';
+import { ReactComponent as EditIcon } from '../../../icons/edit-solid.svg';
+import { ReactComponent as DeleteIcon } from '../../../icons/minus-circle-solid.svg';
 
 const ApartmentDetails = ({ apartment }) => {
-  //const { store } = useContext(ApartmentStore);
-
   return (
-    <li>
-      <div className="name">{apartment.name}</div>
-      <div className="id">{apartment._id}</div>
-      <div>
-        <Link to={`/delete/${apartment._id}`} className="ui tiny icon button">
-          <i aria-hidden="true" className="times icon" />
+    <li className={styles.details}>
+      <div className={styles.name}>{apartment.name}</div>
+      <div className={styles.rent}>{apartment.rent}</div>
+      <div className={styles.actions}>
+        <Link to={`/admin/apartments/edit/${apartment._id}`}>
+          <EditIcon className={styles.edit} />
+        </Link>
+        <Link to={`/admin/apartments/delete/${apartment._id}`}>
+          <DeleteIcon className={styles.delete} />
         </Link>
       </div>
     </li>
