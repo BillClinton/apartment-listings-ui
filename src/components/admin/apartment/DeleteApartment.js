@@ -1,16 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Modal from '../../../Modal';
 import history from '../../../history';
+import { ApartmentStore } from '../../../contexts/ApartmentStore';
 
-const DeleteApartment = () => {
-  const onDismiss = () => {
-    console.log('heyheyhye');
-    history.goBack();
-  };
+const DeleteApartment = ({ match }) => {
+  const id = match.params.id;
+  const onDismiss = () => history.goBack();
+
+  const { store } = useContext(ApartmentStore);
+  const onDelete = id => store.destroy(id);
 
   const actions = (
     <>
-      <button>Delete</button>
+      <button onClick={() => onDelete(id)}>Delete</button>
       <button onClick={() => onDismiss()}>Cancel</button>
     </>
   );
