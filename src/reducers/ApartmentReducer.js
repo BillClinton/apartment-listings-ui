@@ -16,7 +16,6 @@ export default (state = {}, action) => {
     }
 
     case READ_APARTMENT: {
-      console.log(action.payload);
       return { ...state, apartment: action.payload };
     }
 
@@ -25,13 +24,9 @@ export default (state = {}, action) => {
     }
 
     case UPDATE_APARTMENT: {
-      console.log(action.payload);
       const apartments = state.apartments;
       const apartment = action.payload;
       const index = apartments.findIndex(item => item._id === apartment._id);
-
-      console.log(action.payload);
-      console.log(index);
 
       if (~index) {
         apartments[index] = apartment;
