@@ -1,0 +1,46 @@
+.grid {
+  margin: 0 20px 0 0;
+  border: 1px solid #999;
+  border-bottom: none;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: 32px;
+  align-items: center;
+
+  &:last-child {
+    border-bottom: 1px solid #999;
+  }
+
+  div {
+    margin: 0 6px;
+  }
+
+  .name {
+    grid-column: 1 / 6;
+  }
+
+  .rent {
+    grid-column: 6 / 8;
+  }
+
+  .actions {
+    grid-column: 9 / 11;
+    display: flex;
+    justify-content: flex-end;
+    height: 24px;
+
+    .delete {
+      color: red;
+      width: 24px;
+      height: 24px;
+      vertical-align: middle;
+    }
+    .edit {
+      color: blue;
+      width: 24px;
+      height: 24px;
+      vertical-align: middle;
+    }
+  }
+}
