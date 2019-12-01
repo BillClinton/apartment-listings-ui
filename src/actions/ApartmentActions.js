@@ -27,7 +27,6 @@ export const createApartment = (formValues, dispatch) => {
 
 export const readApartment = (id, dispatch) => {
   const getData = async () => await API.get(`/apartments/${id}`);
-  console.log('reading....');
   getData()
     .then(response => {
       dispatch({
@@ -59,7 +58,6 @@ export const updateApartment = (id, formValues, dispatch) => {
 
   updateData()
     .then(response => {
-      console.log('dispatching');
       dispatch({
         type: UPDATE_APARTMENT,
         payload: response.data
