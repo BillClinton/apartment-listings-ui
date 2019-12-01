@@ -8,8 +8,6 @@ const EditApartmentForm = ({ apartment }) => {
   const { store } = useContext(ApartmentStore);
   const onSubmit = data => store.update(apartment._id, data);
 
-  console.log(apartment);
-
   return apartment ? (
     <form onSubmit={form.handleSubmit(onSubmit)}>
       <TextInput
