@@ -14,8 +14,8 @@ const AdminHeader = () => {
 
         <nav className={isMenuOpen ? styles.navActive : ''}>
           <Link to="/">Home</Link>
-          <Link to="/admin/apartments">Admin</Link>
-          <Link to="/admin/apartments/new">New</Link>
+          <Link to="/admin/apartments">Apartments</Link>
+          <Link to="/admin/users">Users</Link>
         </nav>
         <div
           className={
