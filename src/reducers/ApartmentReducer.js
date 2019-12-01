@@ -30,7 +30,7 @@ export default (state = {}, action) => {
 
       if (~index) {
         apartments[index] = apartment;
-        return { ...state, apartments };
+        return { ...state, apartments, apartment: null };
       }
       return { ...state };
     }
