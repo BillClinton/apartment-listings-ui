@@ -1,60 +1,107 @@
 @import '../../../../sass/_variables';
+@import '../../../../sass/_buttons';
 
 .pageTitle {
-  max-width: $max-content-width;
   font-size: 1.6em;
   display: flex;
   justify-content: space-between;
-  margin: 0 auto;
-  padding: 0.2em 1em 0;
+  padding: 0.6em 0 0 12px;
+  margin: 0 auto 0.6em;
 }
 
 .list {
   margin: 0;
   padding: 0;
 
+  // grid rows
   li {
-    border: 1px solid #999;
     border-bottom: none;
     display: grid;
     grid-template-columns: repeat(10, 1fr);
-    grid-gap: 10px;
-    grid-auto-rows: 32px;
+    grid-row-gap: 0;
     align-items: center;
 
-    &:last-child {
-      border-bottom: 1px solid #999;
+    // alternating row backgrounds
+    &:nth-child(even) {
+      background: $gray-1;
     }
 
-    div {
-      margin: 0 6px;
-    }
+    // grid header
+    &:first-child {
+      color: $white;
+      font-weight: 600;
+      background: $bg-dark;
 
-    div:nth-child(1) {
-      grid-column: 1 / 6;
-    }
-
-    div:nth-child(2) {
-      grid-column: 6 / 8;
-    }
-
-    div:last-child {
-      grid-column: 9 / 11;
-      display: flex;
-      justify-content: flex-end;
-      height: 24px;
-
-      a:nth-child(1) {
-        color: blue;
-        width: 24px;
-        height: 24px;
-        vertical-align: middle;
+      // remove vertical border lines
+      div {
+        border-right: none;
       }
-      a:nth-child(2) {
-        color: red;
-        width: 24px;
-        height: 24px;
-        vertical-align: middle;
+    }
+
+    &:last-child {
+      border-bottom: 1px solid $gray-2;
+    }
+
+    // data cells
+    div {
+      height: 100%;
+      margin: 0 6px;
+      padding: 6px 6px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      border-right: 1px solid $gray-2;
+
+      // first column
+      &:nth-child(1) {
+        grid-column: 1 / 6;
+
+        @media screen and (max-width: $breakpoint) {
+          grid-column: 1 / 8;
+          border-right: none;
+        }
+      }
+
+      // second column
+      &:nth-child(2) {
+        grid-column: 6 / 8;
+        text-align: right;
+
+        @media screen and (max-width: $breakpoint) {
+          display: none;
+        }
+      }
+
+      // action column
+      &:last-child {
+        grid-column: 9 / 11;
+        display: flex;
+        justify-content: flex-end;
+        border-right: none;
+
+        @media screen and (max-width: $breakpoint) {
+          grid-column: 8 / 11;
+        }
+
+        a {
+          @extend .button;
+          padding: 2px 2px;
+          margin-left: 0.5em;
+          width: 24px;
+          height: 24px;
+          vertical-align: middle;
+        }
+
+        // edit button
+        a:nth-child(1) {
+          @extend .button.blue;
+          padding: 3px 2px 1px 3px;
+        }
+
+        // delete button
+        a:nth-child(2) {
+          @extend .button.red;
+        }
       }
     }
   }
