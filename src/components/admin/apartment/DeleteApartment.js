@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import Modal from '../../../Modal';
+import Modal from '../../layout/Modal';
 import history from '../../../history';
 import { ApartmentStore } from '../../../contexts/ApartmentStore';
 
