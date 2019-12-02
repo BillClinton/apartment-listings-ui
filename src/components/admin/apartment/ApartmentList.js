@@ -16,6 +16,11 @@ const ApartmentList = () => {
         <NewButton />
       </h1>
       <ul className={styles.list}>
+        <li>
+          <div>Name</div>
+          <div>Rent</div>
+          <div>Actions</div>
+        </li>
         {apartments.map(apartment => {
           return <ApartmentDetails apartment={apartment} key={apartment._id} />;
         })}
