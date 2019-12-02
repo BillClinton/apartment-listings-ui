@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import styles from './Modal.module.scss';
-import { ReactComponent as CloseIcon } from './icons/times-circle-solid.svg';
+import { ReactComponent as CloseIcon } from '../icons/times-circle-solid.svg';
 
 const Modal = props => {
   console.log('modal');

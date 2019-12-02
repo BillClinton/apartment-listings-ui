@@ -1,5 +1,5 @@
-@import './sass/_variables';
-@import './sass/_buttons';
+@import '../../sass/_variables';
+@import '../../sass/_buttons';
 
 .modal {
   margin: calc(#{$header-height} + 1em) auto;
@@ -34,6 +34,12 @@
     button {
       @extend .button;
       margin: 0 0.4em 0.2em;
+    }
+    button:nth-child(1) {
+      @extend .button.red;
+    }
+    button:nth-child(2) {
+      @extend .button.green;
     }
   }
 }
