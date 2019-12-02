@@ -9,7 +9,7 @@ const ApartmentList = () => {
   const { store } = useContext(ApartmentStore);
   const apartments = store.data;
 
-  return apartments.length ? (
+  return (
     <div className="apartment-list">
       <h1 className={styles.pageTitle}>
         Apartment List
@@ -21,17 +21,20 @@ const ApartmentList = () => {
           <div>Rent</div>
           <div>Actions</div>
         </li>
-        {apartments.map(apartment => {
-          return <ApartmentDetails apartment={apartment} key={apartment._id} />;
-        })}
+        {apartments.length ? (
+          <>
+            {apartments.map(apartment => {
+              return (
+                <ApartmentDetails apartment={apartment} key={apartment._id} />
+              );
+            })}
+            <ReloadButton />
+          </>
+        ) : (
+          <div className={styles.loading}>loading</div>
+        )}
       </ul>
-      <ReloadButton />
     </div>
-  ) : (
-    <>
-      <div className="empty">No apartments found</div>
-      <ReloadButton />
-    </>
   );
 };
 

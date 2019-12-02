@@ -1,5 +1,6 @@
 @import '../../../../sass/_variables';
 @import '../../../../sass/_buttons';
+@import '../../../../sass/_list-grid';
 
 .pageTitle {
   font-size: 1.6em;
@@ -9,39 +10,15 @@
   margin: 0 auto 0.6em;
 }
 
+.loading {
+  display: none;
+}
+
 .list {
-  margin: 0;
-  padding: 0;
+  @extend .list-grid;
 
   // grid rows
   li {
-    border-bottom: none;
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    grid-row-gap: 0;
-    align-items: center;
-
-    // alternating row backgrounds
-    &:nth-child(even) {
-      background: $gray-1;
-    }
-
-    // grid header
-    &:first-child {
-      color: $white;
-      font-weight: 600;
-      background: $bg-dark;
-
-      // remove vertical border lines
-      div {
-        border-right: none;
-      }
-    }
-
-    &:last-child {
-      border-bottom: 1px solid $gray-2;
-    }
-
     // data cells
     div {
       height: 100%;
@@ -57,7 +34,7 @@
         grid-column: 1 / 6;
 
         @media screen and (max-width: $breakpoint) {
-          grid-column: 1 / 8;
+          grid-column: 1 / 9;
           border-right: none;
         }
       }
@@ -74,13 +51,13 @@
 
       // action column
       &:last-child {
-        grid-column: 9 / 11;
+        grid-column: 11 / 13;
         display: flex;
         justify-content: flex-end;
         border-right: none;
 
         @media screen and (max-width: $breakpoint) {
-          grid-column: 8 / 11;
+          grid-column: 9 / 13;
         }
 
         a {

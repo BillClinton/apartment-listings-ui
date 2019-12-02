@@ -1,0 +1,48 @@
+@import './_variables';
+@import './_buttons';
+
+.list-grid {
+  margin: 0;
+  padding: 0;
+
+  // grid rows
+  li {
+    border-bottom: none;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-row-gap: 0;
+    align-items: center;
+
+    // alternating row backgrounds
+    &:nth-child(even) {
+      background: $gray-1;
+    }
+
+    // grid header
+    &:first-child {
+      color: $white;
+      font-weight: 600;
+      background: $bg-dark;
+
+      // remove vertical border lines
+      div {
+        border-right: none;
+      }
+    }
+
+    &:last-child {
+      border-bottom: 1px solid $gray-2;
+    }
+
+    // data cells
+    div {
+      height: 100%;
+      margin: 0 6px;
+      padding: 6px 6px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      border-right: 1px solid $gray-2;
+    }
+  }
+}
