@@ -7,7 +7,8 @@ const UserDetails = ({ user }) => {
   return (
     <li>
       <div>{user.name}</div>
-      <div>{user.rent}</div>
+      <div>{user.surname}</div>
+      <div>{user.email}</div>
       <div>
         <Link to={`/admin/users/edit/${user._id}`}>
           <EditIcon />

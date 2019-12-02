@@ -14,7 +14,7 @@
     align-items: center;
 
     // alternating row backgrounds
-    &:nth-child(even) {
+    &:nth-child(odd) {
       background: $gray-1;
     }
 

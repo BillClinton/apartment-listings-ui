@@ -8,7 +8,7 @@ const UserList = () => {
   const { store } = useContext(UserStore);
   const users = store.data;
 
-  return users.length ? (
+  return (
     <div className="user-list">
       <h1 className={styles.pageTitle}>
         User List
@@ -21,13 +21,15 @@ const UserList = () => {
           <div>Email</div>
           <div>Actions</div>
         </li>
-        {users.map(user => {
-          return <UserDetails user={user} key={user._id} />;
-        })}
+        {users.length ? (
+          users.map(user => {
+            return <UserDetails user={user} key={user._id} />;
+          })
+        ) : (
+          <div className={styles.loading}>loading</div>
+        )}
       </ul>
     </div>
-  ) : (
-    <div className="empty"></div>
   );
 };
 
