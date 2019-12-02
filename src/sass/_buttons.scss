@@ -1,6 +1,8 @@
+@import './_variables';
+
 .button {
   display: inline-block;
-  *display: inline;
+  //*display: inline;
   zoom: 1;
   padding: 6px 20px;
   margin: 0;
@@ -38,8 +40,8 @@
 
 .button:active {
   background: #e9e9e9;
-  position: relative;
-  top: 1px;
+  //position: relative;
+  //top: 1px;
   text-shadow: none;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3) inset;
 }
@@ -70,42 +72,45 @@
 }
 
 .button.green {
-  background-color: #57a957;
-  border-color: #57a957;
+  background-color: $green;
+  border-color: $green;
 }
 
 .button.green:hover {
-  background-color: #62c462;
+  color: #fff;
+  background-color: lighten($green, 10%);
 }
 
 .button.green:active {
-  background: #57a957;
+  background: darken($green, 5%);
 }
 
 .button.red {
-  background-color: #ca3535;
-  border-color: #c43c35;
+  background-color: $red;
+  border-color: $red;
 }
 
 .button.red:hover {
-  background-color: #ee5f5b;
+  background-color: lighten($red, 10%);
 }
 
 .button.red:active {
-  background: #c43c35;
+  background: darken($red, 5%);
 }
 
 .button.blue {
-  background-color: #269ce9;
-  border-color: #269ce9;
+  background-color: $blue;
+  border-color: $blue;
 }
 
 .button.blue:hover {
-  background-color: #70b9e8;
+  color: #fff;
+  background-color: lighten($blue, 10%);
 }
 
 .button.blue:active {
-  background: #269ce9;
+  color: #fff;
+  background: darken($blue, 5%);
 }
 
 .green[disabled],
