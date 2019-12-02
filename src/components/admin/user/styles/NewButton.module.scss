@@ -1,0 +1,36 @@
+@import '../../../../sass/_variables';
+@import '../../../../sass/_buttons';
+
+.linkPC {
+  @extend .button;
+  @extend .button.green;
+  display: inline-block;
+
+  @media screen and (max-width: $breakpoint) {
+    display: none;
+  }
+}
+
+.linkMobile {
+  @extend .button;
+  @extend .button.green;
+  width: 72px;
+  height: 72px;
+  border-radius: 100%;
+  position: fixed;
+  bottom: 12px;
+  right: 12px;
+  display: none;
+  padding: 11px;
+
+  svg {
+    // margin-top: 12px;
+    // margin-left: 12px;
+    width: 48px;
+    height: 48px;
+  }
+
+  @media screen and (max-width: $breakpoint) {
+    display: block;
+  }
+}
