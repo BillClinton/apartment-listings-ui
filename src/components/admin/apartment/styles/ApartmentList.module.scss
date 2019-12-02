@@ -1,0 +1,61 @@
+@import '../../../../sass/_variables';
+
+.pageTitle {
+  max-width: $max-content-width;
+  font-size: 1.6em;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 0.2em 1em 0;
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+
+  li {
+    border: 1px solid #999;
+    border-bottom: none;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: 32px;
+    align-items: center;
+
+    &:last-child {
+      border-bottom: 1px solid #999;
+    }
+
+    div {
+      margin: 0 6px;
+    }
+
+    div:nth-child(1) {
+      grid-column: 1 / 6;
+    }
+
+    div:nth-child(2) {
+      grid-column: 6 / 8;
+    }
+
+    div:last-child {
+      grid-column: 9 / 11;
+      display: flex;
+      justify-content: flex-end;
+      height: 24px;
+
+      a:nth-child(1) {
+        color: blue;
+        width: 24px;
+        height: 24px;
+        vertical-align: middle;
+      }
+      a:nth-child(2) {
+        color: red;
+        width: 24px;
+        height: 24px;
+        vertical-align: middle;
+      }
+    }
+  }
+}
