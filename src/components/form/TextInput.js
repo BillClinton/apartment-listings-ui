@@ -1,12 +1,15 @@
 import React from 'react';
+import ErrorMessage from './ErrorMessage';
 
 const TextInput = ({ form, fieldName, label, validations = {} }) => {
   return (
-    <p className={`input-${fieldName}`}>
+    <li>
       <label htmlFor={fieldName}>{label}</label>
-      <input name={fieldName} ref={form.register(validations)} />
-      {form.errors.name && `${label} is required.`}
-    </p>
+      <div>
+        <input name={fieldName} type="text" ref={form.register(validations)} />
+        <ErrorMessage errors={form.errors} fieldName={fieldName} />
+      </div>
+    </li>
   );
 };
 

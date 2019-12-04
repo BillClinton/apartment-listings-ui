@@ -9,7 +9,7 @@ const NewApartmentForm = () => {
   const onSubmit = data => store.create(data);
 
   return (
-    <form onSubmit={form.handleSubmit(onSubmit)}>
+    <form onSubmit={form.handleSubmit(onSubmit)} autocomplete="on">
       <TextInput
         form={form}
         fieldName="name"
