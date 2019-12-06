@@ -1,15 +1,23 @@
 import React, { useContext } from 'react';
 import useForm from 'react-hook-form';
-import TextInput from '../../form/TextInput';
 import { ApartmentStore } from '../../../contexts/ApartmentStore';
+import TextInput from '../../form/TextInput';
+import history from '../../../history';
+import '../../form/form.scss';
 
 const EditApartmentForm = ({ apartment }) => {
   const form = useForm({ defaultValues: apartment });
   const { store } = useContext(ApartmentStore);
-  const onSubmit = data => store.update(apartment._id, data);
+
+  const onCancel = () => history.push('/admin/apartments');
+  const onSubmit = (data, e) => {
+    e.preventDefault();
+    store.update(apartment._id, data);
+  };
 
   return apartment ? (
-    <form onSubmit={form.handleSubmit(onSubmit)}>
+    <form className="form" onSubmit={form.handleSubmit(onSubmit)}>
+      <h1>Edit apartment</h1>
       <TextInput
         form={form}
         fieldName="name"
@@ -45,7 +53,12 @@ const EditApartmentForm = ({ apartment }) => {
         validations={{ required: true }}
       />
 
-      <input type="submit" />
+      <div className="buttons">
+        <button className="submit">Submit</button>
+        <button className="cancel" onClick={onCancel}>
+          Cancel
+        </button>
+      </div>
     </form>
   ) : (
     <div>Loading....</div>

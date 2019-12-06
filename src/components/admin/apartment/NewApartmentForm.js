@@ -1,15 +1,27 @@
 import React, { useContext } from 'react';
 import useForm from 'react-hook-form';
-import TextInput from '../../form/TextInput';
 import { ApartmentStore } from '../../../contexts/ApartmentStore';
+import TextInput from '../../form/TextInput';
+import history from '../../../history';
+import '../../form/form.scss';
 
 const NewApartmentForm = () => {
   const form = useForm();
   const { store } = useContext(ApartmentStore);
-  const onSubmit = data => store.create(data);
+
+  const onCancel = () => history.push('/admin/apartments');
+  const onSubmit = (data, e) => {
+    e.preventDefault();
+    store.create(data);
+  };
 
   return (
-    <form onSubmit={form.handleSubmit(onSubmit)} autocomplete="on">
+    <form
+      className="form"
+      onSubmit={form.handleSubmit(onSubmit)}
+      autocomplete="on"
+    >
+      <h1>Add a new apartment</h1>
       <TextInput
         form={form}
         fieldName="name"
@@ -45,7 +57,12 @@ const NewApartmentForm = () => {
         validations={{ required: true }}
       />
 
-      <input type="submit" />
+      <div className="buttons">
+        <button className="submit">Submit</button>
+        <button className="cancel" onClick={onCancel}>
+          Cancel
+        </button>
+      </div>
     </form>
   );
 };
