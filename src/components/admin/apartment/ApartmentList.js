@@ -28,6 +28,7 @@ const ApartmentList = () => {
                 <ApartmentDetails apartment={apartment} key={apartment._id} />
               );
             })}
+            {/* TODO: incorporate this into ui or lose it */}
             <ReloadButton />
           </>
         ) : (
