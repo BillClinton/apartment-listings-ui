@@ -3,7 +3,7 @@ import ErrorMessage from './ErrorMessage';
 
 const PasswordInput = ({ form, fieldName, label, validations = {} }) => {
   return (
-    <li>
+    <>
       <label htmlFor={fieldName}>{label}</label>
 
       <div>
@@ -23,7 +23,7 @@ const PasswordInput = ({ form, fieldName, label, validations = {} }) => {
             />
           )}
       </div>
-    </li>
+    </>
   );
 };
 
