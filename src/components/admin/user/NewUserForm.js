@@ -1,13 +1,13 @@
 import React, { useContext } from 'react';
-import { UserStore } from '../../../contexts/UserStore';
 import useForm from 'react-hook-form';
+import { UserStore } from '../../../contexts/UserStore';
 import TextInput from '../../form/TextInput';
 import PasswordInput from '../../form/PasswordInput';
 import history from '../../../history';
 import '../../form/form.scss';
 
-const NewUserForm = ({ user }) => {
-  const form = useForm({ defaultValues: user });
+const NewUserForm = () => {
+  const form = useForm();
   const { store } = useContext(UserStore);
 
   const onCancel = () => history.push('/admin/users');
