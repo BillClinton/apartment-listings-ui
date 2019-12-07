@@ -9,9 +9,7 @@ const AdminHeader = () => {
   if (isMenuOpen) {
     toggleClass.push(styles.menuToggleActive);
   }
-  // isMenuOpen
-  //   ? `${styles.menuToggle} ${styles.menuToggleActive}`
-  //   : styles.menuToggle
+
   return (
     <header className={styles.header}>
       <div className={styles.innerwrap}>
