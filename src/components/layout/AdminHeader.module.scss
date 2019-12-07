@@ -38,6 +38,7 @@
 
   nav {
     align-self: center;
+    height: 100%;
     display: flex;
     justify-content: space-around;
     transition: all 400ms;
@@ -48,16 +49,25 @@
       padding: 2px 16px;
       display: inline-block;
       vertical-align: middle;
+      align-self: stretch;
+      line-height: calc(#{$header-height} - 0.5em);
 
       @media screen and (max-width: $breakpoint) {
         text-align: center;
       }
-    }
-    a:active,
-    a:hover,
-    a:visited {
-      color: #fff;
-      text-decoration: none;
+
+      &:hover {
+        @media screen and (min-width: $breakpoint) {
+          background: lighten($bg-dark, 5%);
+        }
+      }
+
+      &:active,
+      &:hover,
+      &:visited {
+        color: #fff;
+        text-decoration: none;
+      }
     }
 
     @media screen and (max-width: $breakpoint) {
