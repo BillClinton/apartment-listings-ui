@@ -17,6 +17,10 @@
 .list {
   @extend .list-grid;
 
+  @media screen and (max-width: $breakpoint) {
+    margin-bottom: 60px;
+  }
+
   // grid rows
   li {
     // data cells
