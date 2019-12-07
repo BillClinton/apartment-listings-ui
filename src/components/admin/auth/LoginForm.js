@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Redirect } from 'react-router-dom';
 import useForm from 'react-hook-form';
 import { AuthContext } from '../../../contexts/AuthContext';
 import TextInput from '../../form/TextInput';
@@ -9,15 +10,14 @@ const LoginForm = () => {
   const form = useForm();
   const { auth } = useContext(AuthContext);
 
-  console.log('loginForm');
-  console.log(auth);
-
   const onSubmit = (data, e) => {
     e.preventDefault();
     auth.login(data);
   };
 
-  return (
+  return auth.loggedIn ? (
+    <Redirect to="/admin" />
+  ) : (
     <form className="form" onSubmit={form.handleSubmit(onSubmit)}>
       <h1>Login</h1>
 

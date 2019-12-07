@@ -1,4 +1,4 @@
-import React, { createContext, useReducer, useContext, useEffect } from 'react';
+import React, { createContext, useReducer, useContext } from 'react';
 import AuthReducer from '../reducers/AuthReducer';
 import { doLogin, doLogout } from '../actions/AuthActions';
 
@@ -26,15 +26,16 @@ const AuthContextProvider = props => {
 
   const [state, dispatch] = useReducer(AuthReducer, initialState);
 
-  const login = data => doLogin(data, dispatch);
-  const logout = () => doLogout(dispatch);
-
   const authHeader = () => {
     if (state.auth.token) {
       return { headers: { Authorization: `Bearer ${state.auth.token}` } };
     }
     return {};
   };
+
+  const header = authHeader();
+  const login = data => doLogin(data, dispatch);
+  const logout = () => doLogout(header, dispatch);
 
   const auth = {
     loggedIn: state.auth.loggedIn,

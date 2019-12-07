@@ -5,6 +5,13 @@ import styles from './AdminHeader.module.scss';
 const AdminHeader = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const toggleClass = [styles.menuToggle];
+  if (isMenuOpen) {
+    toggleClass.push(styles.menuToggleActive);
+  }
+  // isMenuOpen
+  //   ? `${styles.menuToggle} ${styles.menuToggleActive}`
+  //   : styles.menuToggle
   return (
     <header className={styles.header}>
       <div className={styles.innerwrap}>
@@ -16,13 +23,10 @@ const AdminHeader = () => {
           <Link to="/">Home</Link>
           <Link to="/admin/apartments">Apartments</Link>
           <Link to="/admin/users">Users</Link>
+          <Link to="/logout">Logout</Link>
         </nav>
         <div
-          className={
-            isMenuOpen
-              ? `${styles.menuToggle} ${styles.menuToggleActive}`
-              : styles.menuToggle
-          }
+          className={toggleClass.join(' ')}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           <svg

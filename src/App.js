@@ -8,6 +8,7 @@ import history from './history';
 import './App.scss';
 import AuthContextProvider from './contexts/AuthContext';
 import LoginForm from './components/admin/auth/LoginForm';
+import Logout from './components/admin/auth/Logout';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
               <div>homepage goes here</div>
             </Route>
             <Route exact path="/login" component={LoginForm} />
+            <Route exact path="/logout" component={Logout} />
             <PrivateRoute path="/admin" component={Admin} />
           </Switch>
         </Router>
