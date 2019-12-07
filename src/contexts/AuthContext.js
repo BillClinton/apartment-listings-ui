@@ -1,7 +1,6 @@
 import React, { createContext, useReducer, useContext, useEffect } from 'react';
 import AuthReducer from '../reducers/AuthReducer';
 import { doLogin, doLogout } from '../actions/AuthActions';
-import { RESTORE_SESSION } from '../actions/types';
 
 const initialState = {
   auth: { loggedIn: false, email: null, name: null, surname: null, token: null }
