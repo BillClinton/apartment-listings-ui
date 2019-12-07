@@ -1,4 +1,5 @@
 import React, { createContext, useReducer, useEffect } from 'react';
+import { useAuthHeader } from '../contexts/AuthContext';
 import UserReducer from '../reducers/UserReducer';
 import {
   createUser,
@@ -8,19 +9,21 @@ import {
   deleteUser
 } from '../actions/UserActions';
 
-export const UserStore = createContext();
-
 const initialState = {
   users: []
 };
 
+export const UserStore = createContext();
+
 const UserStoreProvider = props => {
   const [state, dispatch] = useReducer(UserReducer, initialState);
-  const create = data => createUser(data, dispatch);
-  const load = () => readUsers(dispatch);
-  const loadOne = id => readUser(id, dispatch);
-  const update = (id, data) => updateUser(id, data, dispatch);
-  const destroy = id => deleteUser(id, dispatch);
+  const authHeader = useAuthHeader();
+
+  const create = data => createUser(data, authHeader, dispatch);
+  const load = () => readUsers(authHeader, dispatch);
+  const loadOne = id => readUser(id, authHeader, dispatch);
+  const update = (id, data) => updateUser(id, data, authHeader, dispatch);
+  const destroy = id => deleteUser(id, authHeader, dispatch);
 
   useEffect(load, []);
 
