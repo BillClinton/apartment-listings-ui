@@ -1,3 +1,6 @@
+export const LOGIN = 'LOGIN';
+export const LOGOUT = 'LOGOUT';
+
 export const CREATE_APARTMENT = 'CREATE_APARTMENT';
 export const READ_APARTMENT = 'READ_APARTMENT';
 export const READ_APARTMENTS = 'READ_APARTMENTS';
