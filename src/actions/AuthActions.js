@@ -1,7 +1,7 @@
 import API from '../apis/API';
 import history from '../history';
 
-import { LOGIN, LOGOUT } from './types';
+import { LOGIN, LOGOUT, LOGIN_FAIL } from './types';
 
 export const doLogin = (formValues, dispatch) => {
   const sendData = async () =>
@@ -16,6 +16,10 @@ export const doLogin = (formValues, dispatch) => {
       history.push('/admin');
     })
     .catch(e => {
+      dispatch({
+        type: LOGIN_FAIL,
+        payload: e
+      });
       console.log(e);
     });
 };

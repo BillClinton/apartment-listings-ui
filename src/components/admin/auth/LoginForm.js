@@ -4,7 +4,9 @@ import useForm from 'react-hook-form';
 import { AuthContext } from '../../../contexts/AuthContext';
 import TextInput from '../../form/TextInput';
 import PasswordInput from '../../form/PasswordInput';
+import ErrorMessage from '../../form/ErrorMessage';
 import '../../form/form.scss';
+import UserInfo from '../../UserInfo';
 
 const LoginForm = () => {
   const form = useForm();
@@ -19,8 +21,13 @@ const LoginForm = () => {
     <Redirect to="/admin" />
   ) : (
     <form className="form" onSubmit={form.handleSubmit(onSubmit)}>
+      <UserInfo />
       <h1>Login</h1>
-
+      {auth.loginFail && (
+        <p className="form-error">
+          <ErrorMessage message="Invalid username/password combination" />
+        </p>
+      )}
       <TextInput
         form={form}
         fieldName="email"

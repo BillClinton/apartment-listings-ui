@@ -21,6 +21,31 @@ $labelWidth: 120px;
     font-size: 1.6em;
   }
 
+  // error messages
+  p.form-error {
+    grid-column: 1 / span 2;
+    margin: 0 0 0 2em;
+  }
+  p.error {
+    font-size: 0.8em;
+    color: $dark-red;
+    padding: 2px 20px;
+    position: relative;
+
+    i.icon {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 16px;
+      width: 16px;
+      background-color: $dark-red;
+      mask-image: url('../icons/exclamation-triangle-solid.svg');
+      mask-size: 14px 14px;
+      mask-position: 0 3px;
+      mask-repeat: no-repeat;
+    }
+  }
+
   div.buttons {
     grid-column: 1 / span 2;
     width: 100%;
@@ -85,27 +110,6 @@ $labelWidth: 120px;
     input:focus {
       outline: none;
       border: 1px solid $bg-dark;
-    }
-
-    // error messages
-    p {
-      font-size: 0.8em;
-      color: $dark-red;
-      padding: 2px 20px;
-      position: relative;
-
-      i.icon {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 16px;
-        width: 16px;
-        background-color: $dark-red;
-        mask-image: url('../icons/exclamation-triangle-solid.svg');
-        mask-size: 14px 14px;
-        mask-position: 0 3px;
-        mask-repeat: no-repeat;
-      }
     }
   }
 }

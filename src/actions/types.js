@@ -1,5 +1,6 @@
 export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';
+export const LOGIN_FAIL = 'LOGIN_FAIL';
 
 export const CREATE_APARTMENT = 'CREATE_APARTMENT';
 export const READ_APARTMENT = 'READ_APARTMENT';

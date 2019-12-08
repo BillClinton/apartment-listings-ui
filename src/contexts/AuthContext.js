@@ -3,7 +3,14 @@ import AuthReducer from '../reducers/AuthReducer';
 import { doLogin, doLogout } from '../actions/AuthActions';
 
 const initialState = {
-  auth: { loggedIn: false, email: null, name: null, surname: null, token: null }
+  auth: {
+    loggedIn: false,
+    email: null,
+    name: null,
+    surname: null,
+    token: null,
+    loginFail: false
+  }
 };
 
 export const AuthContext = createContext();
@@ -43,6 +50,7 @@ const AuthContextProvider = props => {
     name: state.auth.name,
     surname: state.auth.surname,
     token: state.auth.token,
+    loginFail: state.auth.loginFail,
     login,
     logout,
     authHeader
